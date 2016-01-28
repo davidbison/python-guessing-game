@@ -18,14 +18,12 @@ def range100():
     # button that changes the range to [0,100) and starts a new game
     global secret_number
     secret_number = random.randint(0, 99)
-    print secret_number
 
 
 def range1000():
     # button that changes the range to [0,1000) and starts a new game
     global secret_number
     secret_number = random.randint(0, 999)
-    print secret_number
 
 
 def input_guess(guess):
@@ -40,6 +38,7 @@ def input_guess(guess):
         print game_messages[1]
     elif int_guess == secret_number:
         print game_messages[2]
+        new_game()
 
 
 # create frame
