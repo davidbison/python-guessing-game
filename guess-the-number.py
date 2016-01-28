@@ -10,6 +10,7 @@ def new_game():
     # initialize global variables used in your code here
     global secret_number
     secret_number = random.randint(1, 99)
+    print secret_number
     return secret_number
 
 
@@ -29,6 +30,14 @@ def input_guess(guess):
     # main game logic goes here
     int_guess = int(guess)
     print "Guess was " + guess
+
+    game_messages = ["Higher", "Lower", "Correct"]
+    if int_guess < secret_number:
+        print game_messages[0]
+    elif int_guess > secret_number:
+        print game_messages[1]
+    elif int_guess == secret_number:
+        print game_messages[2]
 
 
 # create frame
