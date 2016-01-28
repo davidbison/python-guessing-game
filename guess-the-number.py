@@ -42,9 +42,12 @@ def input_guess(guess):
 
 # create frame
 frame = simplegui.create_frame("Guessing Game", 200, 200)
-frame.add_input("Enter guess:", input_guess, 100)
+
 
 # register event handlers for control elements and start frame
+frame.add_button("Range is [1-100)", range100, 150)
+frame.add_button("Range is [1-1000)", range1000, 15)
+frame.add_input("Enter guess:", input_guess, 100)
 
 
 # call new_game
