@@ -26,9 +26,8 @@ def range1000():
 
 def input_guess(guess):
     # main game logic goes here
-
-    # remove this when you add your code
-    pass
+    int_guess = int(guess)
+    print "Guess was " + guess
 
 
 # create frame
