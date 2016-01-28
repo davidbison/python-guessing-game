@@ -9,7 +9,7 @@ import random
 def new_game():
     # initialize global variables used in your code here
     global secret_number
-    secret_number = random.randint(1, 99)
+    secret_number = random.randint(0, 99)
     print secret_number
     return secret_number
 
@@ -18,14 +18,14 @@ def new_game():
 def range100():
     # button that changes the range to [0,100) and starts a new game
     global secret_number
-    secret_number = random.randint(1, 99)
+    secret_number = random.randint(0, 99)
     print secret_number
 
 
 def range1000():
     # button that changes the range to [0,1000) and starts a new game
     global secret_number
-    secret_number = random.randint(1, 999)
+    secret_number = random.randint(0, 999)
     print secret_number
 
 
@@ -48,8 +48,8 @@ frame = simplegui.create_frame("Guessing Game", 200, 200)
 
 
 # register event handlers for control elements and start frame
-frame.add_button("Range is [1-100)", range100, 150)
-frame.add_button("Range is [1-1000)", range1000, 15)
+frame.add_button("Range is [0, 100)", range100, 150)
+frame.add_button("Range is [0, 1000)", range1000, 15)
 frame.add_input("Enter guess:", input_guess, 100)
 
 
