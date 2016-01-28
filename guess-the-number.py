@@ -59,6 +59,10 @@ def input_guess(guess):
     if int_guess == secret_number:
         print game_messages["correct"]
         new_game()
+    elif remaining_guesses <= 1:
+        print game_messages["secret number"], secret_number
+        print game_messages["game over"]
+        new_game()
     elif int_guess < secret_number:
         remaining_guesses -= 1
         print game_messages["num_guesses"], remaining_guesses
