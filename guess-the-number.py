@@ -30,7 +30,6 @@ def new_game():
 
     print game_messages["new game"], upper_bound
     print game_messages["num_guesses"], remaining_guesses
-    print secret_number
     print
 
 
