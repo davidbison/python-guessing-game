@@ -31,7 +31,7 @@ def input_guess(guess):
     int_guess = int(guess)
     print "Guess was " + guess
 
-    game_messages = ["Higher", "Lower", "Correct"]
+    game_messages = ["Higher\n", "Lower\n", "Correct\n"]
     if int_guess < secret_number:
         print game_messages[0]
     elif int_guess > secret_number:
