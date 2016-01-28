@@ -10,7 +10,14 @@ import math
 # state of first run set to (1,100]
 lower_bound = 0
 upper_bound = 99
-game_messages = ["Higher!\n", "Lower!\n", "Correct!\n", "Guess was ", "Number of remaining guesses is"]
+game_messages = {"new game": "New game. Range is from",
+                 "num_guesses": "Number of guesses remaining:",
+                 "player guess": "Guess was",
+                 "secret number": "Secret number was",
+                 "too low": "Higher!\n",
+                 "too high": "Lower!\n",
+                 "correct": "Correct!\n",
+                 "game over": "G A M E O V E R"}
 
 
 # helper function to start and restart the game
@@ -22,8 +29,8 @@ def new_game():
 
     remaining_guesses = int(math.ceil(math.log(upper_bound - lower_bound + 1, 2)))
 
-    print "New game. Range is from 0 to", upper_bound + 1
-    print "Number of remaining guesses is", remaining_guesses
+    print game_messages["new game"], upper_bound + 1
+    print game_messages["num_guesses"], remaining_guesses
     print secret_number
     print
 
@@ -46,19 +53,19 @@ def range1000():
 def input_guess(guess):
     # main game logic goes here
     int_guess = int(guess)
-    print game_messages[3] + guess
+    print game_messages["player guess"], guess
 
     global remaining_guesses
     if int_guess < secret_number:
         remaining_guesses -= 1
-        print game_messages[4], remaining_guesses
-        print game_messages[0]
+        print game_messages["num_guesses"], remaining_guesses
+        print game_messages["too low"]
     elif int_guess > secret_number:
         remaining_guesses -= 1
-        print game_messages[4], remaining_guesses
-        print game_messages[1]
+        print game_messages["num_guesses"], remaining_guesses
+        print game_messages["too high"]
     elif int_guess == secret_number:
-        print game_messages[2]
+        print game_messages["correct"]
         new_game()
 
 
