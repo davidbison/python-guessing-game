@@ -1,13 +1,13 @@
-# template for "Guess the number" mini-project
-# input will come from buttons and an input field
-# all output for the game will be printed in the console
+# Guess the Number Mini-Project
 
+
+# modules
 import simplegui
 import random
 import math
 
 
-# state of first run set to (1,100]
+# variables setting the state of the game with range and game messages
 lower_bound = 0
 upper_bound = 100
 game_messages = {"new game": "New game. Range is from",
@@ -20,9 +20,8 @@ game_messages = {"new game": "New game. Range is from",
                  "game over": "G A M E O V E R\n"}
 
 
-# helper function to start and restart the game
 def new_game():
-    # initialize global variables used in your code here
+    # A game is always in play. The secret number and remaining guesses are dependent on the state of the game, set automatically at [0,100) but can change to [0,1000). Each new game assigns a value to the global variables secret_number and remaining_guesses, and prints out the current range and the number of guesses remaining.
     global secret_number, remaining_guesses
 
     secret_number = random.randint(0, upper_bound)
@@ -35,7 +34,6 @@ def new_game():
     print
 
 
-# define event handlers for control panel
 def range100():
     # button that changes the range to [0,100) and starts a new game
     global upper_bound
@@ -51,7 +49,7 @@ def range1000():
 
 
 def input_guess(guess):
-    # main game logic goes here
+    # Takes player's guess from frame input, converts it to an integer, and compares it against the secret number to print out one of four responses. Correct guess immediatley start a new game. A counter decrements remaining guesses and will immediately start a new game when it reaches 0.
     int_guess = int(guess)
     print game_messages["player guess"], guess
 
