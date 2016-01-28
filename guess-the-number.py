@@ -11,7 +11,6 @@ def new_game():
     global secret_number
     secret_number = random.randint(0, 99)
     print secret_number
-    return secret_number
 
 
 # define event handlers for control panel
@@ -50,7 +49,7 @@ frame = simplegui.create_frame("Guessing Game", 200, 200)
 # register event handlers for control elements and start frame
 frame.add_button("Range is [0, 100)", range100, 150)
 frame.add_button("Range is [0, 1000)", range1000, 15)
-frame.add_input("Enter guess:", input_guess, 100)
+frame.add_input("Enter a guess", input_guess, 150)
 
 
 # call new_game
