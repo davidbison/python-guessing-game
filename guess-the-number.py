@@ -4,10 +4,13 @@
 
 import simplegui
 import random
+import math
 
 
 # state of first run set to (1,100]
+lower_bound = 0
 upper_bound = 99
+game_messages = ["Higher!\n", "Lower!\n", "Correct!\n", "Guess was ", "Number of remaining guesses is"]
 
 
 # helper function to start and restart the game
@@ -17,12 +20,10 @@ def new_game():
 
     secret_number = random.randint(0, upper_bound)
 
-    if upper_bound == 99:
-        remaining_guesses = 7
-    elif upper_bound == 999:
-        remaining_guesses = 10
+    remaining_guesses = int(math.ceil(math.log(upper_bound - lower_bound + 1, 2)))
 
     print "New game. Range is from 0 to", upper_bound + 1
+    print "Number of remaining guesses is", remaining_guesses
     print secret_number
     print
 
@@ -45,13 +46,16 @@ def range1000():
 def input_guess(guess):
     # main game logic goes here
     int_guess = int(guess)
-    print "Guess was " + guess
+    print game_messages[3] + guess
 
-    game_messages = ["Higher\n", "Lower\n", "Correct\n"]
-
+    global remaining_guesses
     if int_guess < secret_number:
+        remaining_guesses -= 1
+        print game_messages[4], remaining_guesses
         print game_messages[0]
     elif int_guess > secret_number:
+        remaining_guesses -= 1
+        print game_messages[4], remaining_guesses
         print game_messages[1]
     elif int_guess == secret_number:
         print game_messages[2]
