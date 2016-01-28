@@ -56,7 +56,10 @@ def input_guess(guess):
     print game_messages["player guess"], guess
 
     global remaining_guesses
-    if int_guess < secret_number:
+    if int_guess == secret_number:
+        print game_messages["correct"]
+        new_game()
+    elif int_guess < secret_number:
         remaining_guesses -= 1
         print game_messages["num_guesses"], remaining_guesses
         print game_messages["too low"]
@@ -64,9 +67,6 @@ def input_guess(guess):
         remaining_guesses -= 1
         print game_messages["num_guesses"], remaining_guesses
         print game_messages["too high"]
-    elif int_guess == secret_number:
-        print game_messages["correct"]
-        new_game()
 
 
 # create frame
