@@ -9,7 +9,7 @@ import math
 
 # state of first run set to (1,100]
 lower_bound = 0
-upper_bound = 99
+upper_bound = 100
 game_messages = {"new game": "New game. Range is from",
                  "num_guesses": "Number of guesses remaining:",
                  "player guess": "Guess was",
@@ -29,7 +29,7 @@ def new_game():
 
     remaining_guesses = int(math.ceil(math.log(upper_bound - lower_bound + 1, 2)))
 
-    print game_messages["new game"], upper_bound + 1
+    print game_messages["new game"], upper_bound
     print game_messages["num_guesses"], remaining_guesses
     print secret_number
     print
@@ -39,14 +39,14 @@ def new_game():
 def range100():
     # button that changes the range to [0,100) and starts a new game
     global upper_bound
-    upper_bound = 99
+    upper_bound = 100
     new_game()
 
 
 def range1000():
     # button that changes the range to [0,1000) and starts a new game
     global upper_bound
-    upper_bound = 999
+    upper_bound = 1000
     new_game()
 
 
