@@ -13,8 +13,15 @@ upper_bound = 99
 # helper function to start and restart the game
 def new_game():
     # initialize global variables used in your code here
-    global secret_number
+    global secret_number, remaining_guesses
+
     secret_number = random.randint(0, upper_bound)
+
+    if upper_bound == 99:
+        remaining_guesses = 7
+    elif upper_bound == 999:
+        remaining_guesses = 10
+
     print "New game. Range is from 0 to", upper_bound + 1
     print secret_number
     print
@@ -23,14 +30,14 @@ def new_game():
 # define event handlers for control panel
 def range100():
     # button that changes the range to [0,100) and starts a new game
-    global secret_number, upper_bound
+    global upper_bound
     upper_bound = 99
     new_game()
 
 
 def range1000():
     # button that changes the range to [0,1000) and starts a new game
-    global secret_number, upper_bound
+    global upper_bound
     upper_bound = 999
     new_game()
 
