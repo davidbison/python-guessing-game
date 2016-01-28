@@ -3,13 +3,14 @@
 # all output for the game will be printed in the console
 
 import simplegui
+import random
 
 # helper function to start and restart the game
 def new_game():
     # initialize global variables used in your code here
-
-    # remove this when you add your code
-    pass
+    global secret_number
+    secret_number = random.randint(1, 99)
+    return secret_number
 
 
 # define event handlers for control panel
