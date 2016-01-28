@@ -17,7 +17,7 @@ game_messages = {"new game": "New game. Range is from",
                  "too low": "Higher!\n",
                  "too high": "Lower!\n",
                  "correct": "Correct!\n",
-                 "game over": "G A M E O V E R"}
+                 "game over": "G A M E O V E R\n"}
 
 
 # helper function to start and restart the game
