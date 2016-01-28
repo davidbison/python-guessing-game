@@ -17,14 +17,17 @@ def new_game():
 # define event handlers for control panel
 def range100():
     # button that changes the range to [0,100) and starts a new game
+    global secret_number
+    secret_number = random.randint(1, 99)
+    print secret_number
 
-    # remove this when you add your code
-    pass
 
 def range1000():
     # button that changes the range to [0,1000) and starts a new game
+    global secret_number
+    secret_number = random.randint(1, 999)
+    print secret_number
 
-    pass
 
 def input_guess(guess):
     # main game logic goes here
